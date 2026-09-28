@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "releaseStatus": "in_progress",
+  "components": [
+    {
+      "name": "Floww_Frontend_Client",
+      "repository": "https://github.com/web5five/Floww_Frontend_Client",
+      "commit": null,
+      "required": true,
+      "status": "not_verified",
+      "reason": "No verified release revision yet"
+    },
+    {
+      "name": "Floww_Frontend_Admin",
+      "repository": "https://github.com/web5five/Floww_Frontend_Admin",
+      "commit": null,
+      "required": false,
+      "status": "not_verified",
+      "reason": "No verified release revision yet"
+    },
+    {
+      "name": "Floww_Server",
+      "repository": "https://github.com/web5five/Floww_Server",
+      "commit": null,
+      "required": true,
+      "status": "not_verified",
+      "reason": "No verified release revision yet"
+    },
+    {
+      "name": "Floww_SmartContract",
+      "repository": "https://github.com/web5five/Floww_SmartContract",
+      "commit": null,
+      "required": false,
+      "status": "not_verified",
+      "reason": "No verified release revision yet"
+    }
+  ],
+  "evidence": {
+    "kiln": null,
+    "policyRejections": null,
+    "chainTransaction": null,
+    "demoVideo": null,
+    "deckPdf": null
+  },
+  "limitations": [
+    "No integrated release is claimed by this manifest."
+  ]
+}

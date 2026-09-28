@@ -1,0 +1,18 @@
+name: Hub declarations
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Validate declared release state
+        run: python3 scripts/validate_manifest.py
+      - name: Check whitespace
+        run: git diff --check HEAD^ HEAD

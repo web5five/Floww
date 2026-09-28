@@ -5,34 +5,34 @@
     {
       "name": "Floww_Frontend_Client",
       "repository": "https://github.com/web5five/Floww_Frontend_Client",
-      "commit": null,
+      "commit": "3a9ae6e10158d2acb59722f2694cdac0bfbd3f17",
       "required": true,
       "status": "not_verified",
-      "reason": "No verified release revision yet"
+      "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
     },
     {
       "name": "Floww_Frontend_Admin",
       "repository": "https://github.com/web5five/Floww_Frontend_Admin",
-      "commit": null,
+      "commit": "52774bf8ffe7f11c795259ff5e676fce3fb1882a",
       "required": false,
       "status": "not_verified",
-      "reason": "No verified release revision yet"
+      "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
     },
     {
       "name": "Floww_Server",
       "repository": "https://github.com/web5five/Floww_Server",
-      "commit": null,
+      "commit": "c194a23daf82c7be1dc60b8a9ac9c5e65393eaab",
       "required": true,
       "status": "not_verified",
-      "reason": "No verified release revision yet"
+      "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
     },
     {
       "name": "Floww_SmartContract",
       "repository": "https://github.com/web5five/Floww_SmartContract",
-      "commit": null,
+      "commit": "0aa422d232e2811484ccaa54dbd73beaaec55070",
       "required": false,
       "status": "not_verified",
-      "reason": "No verified release revision yet"
+      "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
     }
   ],
   "evidence": {
@@ -43,6 +43,8 @@
     "deckPdf": null
   },
   "limitations": [
-    "No integrated release is claimed by this manifest."
+    "These pinned revisions identify collaboration foundations, not an integrated application release.",
+    "AI/evidence implementation is being verified separately; UI, real authentication, merchant and wallet/chain integration are pending.",
+    "See hub issue #3 for end-to-end acceptance."
   ]
 }

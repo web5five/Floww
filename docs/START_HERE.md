@@ -6,7 +6,7 @@ Use the hub for shared contracts, evidence and handoff. Code remains in the four
 
 ## First ten minutes / 첫 10분
 
-1. Read your repository's `AGENTS.md`, current issue and the linked PR. Fetch before editing, inspect the diff and declare owned files.
+1. Read your repository's `AGENTS.md`, current issue and the linked PR ([server #3](https://github.com/web5five/Floww_Server/pull/3), [hub #2](https://github.com/web5five/Floww/pull/2)). Fetch before editing, inspect the diff and declare owned files.
 2. Read the current [system architecture](https://w3ph4ai.atlassian.net/wiki/spaces/GH/pages/11927569) and [engineering workflow](https://w3ph4ai.atlassian.net/wiki/spaces/GH/pages/12517414). Record the versions you used. Published recommendations still need the relevant owners' review.
 3. Agree the shared API/state/event boundary before parallel implementation. The Java AI/evidence slice is a starting point for integration, not a replacement for production auth or payment state.
 4. Use a focused branch, run the real check commands and open a PR with evidence. One independent teammate approval is required on protected default branches. Never force-push or silently bypass review.

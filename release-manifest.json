@@ -21,10 +21,10 @@
     {
       "name": "Floww_Server",
       "repository": "https://github.com/web5five/Floww_Server",
-      "commit": "c194a23daf82c7be1dc60b8a9ac9c5e65393eaab",
+      "commit": "3f1fe3e228f2e6b151d56f2ac7d99efbae7704d2",
       "required": true,
       "status": "not_verified",
-      "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
+      "reason": "AI/tools and evidence module locally verified with real Kiln; integrated auth, merchant, wallet and UI release not yet verified"
     },
     {
       "name": "Floww_SmartContract",
@@ -36,15 +36,15 @@
     }
   ],
   "evidence": {
-    "kiln": null,
-    "policyRejections": null,
+    "kiln": "docs/evidence/2026-09-29/verification.json",
+    "policyRejections": "docs/evidence/2026-09-29/verification.json",
     "chainTransaction": null,
     "demoVideo": null,
     "deckPdf": null
   },
   "limitations": [
-    "These pinned revisions identify collaboration foundations, not an integrated application release.",
-    "AI/evidence implementation is being verified separately; UI, real authentication, merchant and wallet/chain integration are pending.",
-    "See hub issue #3 for end-to-end acceptance."
+    "Server AI/tools/evidence slice passed isolated tests and a live Kiln conversation; merchant was a local test fixture.",
+    "UI, production authentication, real merchant and wallet/chain integration remain pending.",
+    "Human review and final video/deck/chain evidence remain required; see hub issue #3."
   ]
 }

@@ -1,0 +1,530 @@
+{
+  "schemaVersion": 1,
+  "scope": "Java AI/tools and evidence module; not end-to-end purchase",
+  "jarSha256": "f3452eb4d819f392a92b5d6d283be730cc7e606813aacd617056946bca1a50c1",
+  "javaTests": 13,
+  "controller": {
+    "passed": true,
+    "assertions": 82,
+    "scenarios": 15,
+    "checks": [
+      {
+        "name": "anonymous denied",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "normal status REVIEWED",
+        "passed": true
+      },
+      {
+        "name": "normal never claims payment",
+        "passed": true
+      },
+      {
+        "name": "four calls bounded",
+        "passed": true
+      },
+      {
+        "name": "tool results bound to original IDs turn 0",
+        "passed": true
+      },
+      {
+        "name": "tool results bound to original IDs turn 1",
+        "passed": true
+      },
+      {
+        "name": "tool results bound to original IDs turn 2",
+        "passed": true
+      },
+      {
+        "name": "tool results bound to original IDs turn 3",
+        "passed": true
+      },
+      {
+        "name": "server-owned price recorded",
+        "passed": true
+      },
+      {
+        "name": "complete terminal export declared",
+        "passed": true
+      },
+      {
+        "name": "local model never mislabeled Kiln",
+        "passed": true
+      },
+      {
+        "name": "partial evidence never declared complete",
+        "passed": true
+      },
+      {
+        "name": "event correlation/version/source",
+        "passed": true
+      },
+      {
+        "name": "cross-owner denied ",
+        "passed": true
+      },
+      {
+        "name": "cross-owner denied /events",
+        "passed": true
+      },
+      {
+        "name": "cross-owner denied /evidence.json",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "budget status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "budget never claims payment",
+        "passed": true
+      },
+      {
+        "name": "budget rejection persisted",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "recipient status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "recipient never claims payment",
+        "passed": true
+      },
+      {
+        "name": "recipient rejection persisted",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "item status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "item never claims payment",
+        "passed": true
+      },
+      {
+        "name": "item rejection persisted",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "stale status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "stale never claims payment",
+        "passed": true
+      },
+      {
+        "name": "stale rejection persisted",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "fabricated_quote status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "fabricated_quote never claims payment",
+        "passed": true
+      },
+      {
+        "name": "fabricated_quote rejection persisted",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "override_price status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "override_price never claims payment",
+        "passed": true
+      },
+      {
+        "name": "override_price rejection persisted",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "duplicate_id status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "duplicate_id never claims payment",
+        "passed": true
+      },
+      {
+        "name": "duplicate_id rejection persisted",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "unknown_tool status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "unknown_tool never claims payment",
+        "passed": true
+      },
+      {
+        "name": "unknown_tool rejection persisted",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "truncated status FAILED",
+        "passed": true
+      },
+      {
+        "name": "truncated never claims payment",
+        "passed": true
+      },
+      {
+        "name": "truncated response retains reported usage",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "retry_once status REVIEWED",
+        "passed": true
+      },
+      {
+        "name": "retry_once never claims payment",
+        "passed": true
+      },
+      {
+        "name": "retried attempt usage marked unknown",
+        "passed": true
+      },
+      {
+        "name": "retry aggregate does not claim complete usage",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "auth_error status FAILED",
+        "passed": true
+      },
+      {
+        "name": "auth_error never claims payment",
+        "passed": true
+      },
+      {
+        "name": "provider authentication never retried",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "missing_usage status REVIEWED",
+        "passed": true
+      },
+      {
+        "name": "missing_usage never claims payment",
+        "passed": true
+      },
+      {
+        "name": "unknown usage not fabricated",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "slow_final status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "slow_final never claims payment",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "slow_mandate status REJECTED",
+        "passed": true
+      },
+      {
+        "name": "slow_mandate never claims payment",
+        "passed": true
+      },
+      {
+        "name": "confirmed mandate creation",
+        "passed": true
+      },
+      {
+        "name": "created execution export not terminal",
+        "passed": true
+      },
+      {
+        "name": "idempotency same execution",
+        "passed": true
+      },
+      {
+        "name": "idempotency protects item scope",
+        "passed": true
+      },
+      {
+        "name": "concurrent run only executes once",
+        "passed": true
+      },
+      {
+        "name": "all event pages complete and unique",
+        "passed": true
+      },
+      {
+        "name": "history cursor covers all owned executions once",
+        "passed": true
+      },
+      {
+        "name": "foreign history anchor hidden",
+        "passed": true
+      },
+      {
+        "name": "restart preserves evidence",
+        "passed": true
+      },
+      {
+        "name": "credentials not exported",
+        "passed": true
+      }
+    ]
+  },
+  "docker": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "container configured non-root",
+        "passed": true
+      },
+      {
+        "name": "packaged container health through loopback port",
+        "passed": true
+      },
+      {
+        "name": "published only on host loopback",
+        "passed": true
+      },
+      {
+        "name": "anonymous API denied",
+        "passed": true
+      },
+      {
+        "name": "health does not imply integration ready",
+        "passed": true
+      },
+      {
+        "name": "container writes mandate to PostgreSQL",
+        "passed": true
+      },
+      {
+        "name": "missing integration fails closed",
+        "passed": true
+      }
+    ],
+    "configuredUser": "10001:10001",
+    "startupSeconds": 25.96,
+    "imageId": "sha256:314d2cee53527000bef1fc948fdda3ec59db6b9a4b28fa816c4ca58787b9e575",
+    "readiness": {
+      "kilnConfigured": false,
+      "processHealthIsIntegrationProof": false,
+      "paymentConfigured": false,
+      "merchantMode": "unavailable",
+      "merchantConfigured": false
+    }
+  },
+  "policyRejections": [
+    {
+      "scenario": "budget",
+      "status": "REJECTED",
+      "code": "BUDGET_EXCEEDED"
+    },
+    {
+      "scenario": "recipient",
+      "status": "REJECTED",
+      "code": "RECIPIENT_NOT_ALLOWED"
+    },
+    {
+      "scenario": "item",
+      "status": "REJECTED",
+      "code": "ITEM_NOT_ALLOWED"
+    },
+    {
+      "scenario": "stale",
+      "status": "REJECTED",
+      "code": "QUOTE_STALE"
+    },
+    {
+      "scenario": "fabricated_quote",
+      "status": "REJECTED",
+      "code": "UNKNOWN_QUOTE_ID"
+    },
+    {
+      "scenario": "override_price",
+      "status": "REJECTED",
+      "code": "INVALID_TOOL_ARGUMENTS"
+    },
+    {
+      "scenario": "duplicate_id",
+      "status": "REJECTED",
+      "code": "DUPLICATE_TOOL_CALL_ID"
+    },
+    {
+      "scenario": "unknown_tool",
+      "status": "REJECTED",
+      "code": "TOOL_NOT_ALLOWED"
+    },
+    {
+      "scenario": "slow_final",
+      "status": "REJECTED",
+      "code": "QUOTE_STALE"
+    },
+    {
+      "scenario": "slow_mandate",
+      "status": "REJECTED",
+      "code": "MANDATE_EXPIRED"
+    }
+  ],
+  "liveKiln": {
+    "passed": true,
+    "executionId": "7c92f21b-ffca-4a9e-beca-51b833faa1db",
+    "status": "REVIEWED",
+    "modelEvidenceMode": "kiln",
+    "merchantMode": "local_test_merchant",
+    "modelUsage": {
+      "attempts": 4,
+      "totals": {
+        "promptTokens": 1525,
+        "completionTokens": 1496,
+        "totalTokens": 3021
+      },
+      "status": "complete"
+    },
+    "modelCalls": 4,
+    "toolCalls": 3,
+    "toolIdsMatched": true,
+    "observedAt": "2026-09-28T18:20:01.894218+00:00",
+    "calls": [
+      {
+        "usage": {
+          "total_tokens": 899,
+          "prompt_tokens": 307,
+          "completion_tokens": 592
+        },
+        "modelId": "qwen3-32b",
+        "toolCallId": "call-42b5f6bc44734695bb17f467662f15e0",
+        "parseStatus": "parsed",
+        "usageStatus": "reported",
+        "finishReason": "tool_calls",
+        "generationId": "3332380c-29df-46a9-9e79-a1dc70829a22",
+        "providerCost": null,
+        "attemptNumber": 1,
+        "modelCallNumber": 1,
+        "modelEvidenceMode": "kiln"
+      },
+      {
+        "usage": {
+          "total_tokens": 589,
+          "prompt_tokens": 366,
+          "completion_tokens": 223
+        },
+        "modelId": "qwen3-32b",
+        "toolCallId": "call-69dbda9d782f4e608a3095e6adcf293d",
+        "parseStatus": "parsed",
+        "usageStatus": "reported",
+        "finishReason": "tool_calls",
+        "generationId": "16403ff2-bc5c-486e-bcb0-6def54dd67c4",
+        "providerCost": null,
+        "attemptNumber": 1,
+        "modelCallNumber": 2,
+        "modelEvidenceMode": "kiln"
+      },
+      {
+        "usage": {
+          "total_tokens": 851,
+          "prompt_tokens": 477,
+          "completion_tokens": 374
+        },
+        "modelId": "qwen3-32b",
+        "toolCallId": "call-89d1a87ca23b478b97becbf6cd7eb953",
+        "parseStatus": "parsed",
+        "usageStatus": "reported",
+        "finishReason": "tool_calls",
+        "generationId": "c7865d59-1a76-4b38-a80b-ccccc863da88",
+        "providerCost": null,
+        "attemptNumber": 1,
+        "modelCallNumber": 3,
+        "modelEvidenceMode": "kiln"
+      },
+      {
+        "usage": {
+          "total_tokens": 682,
+          "prompt_tokens": 375,
+          "completion_tokens": 307
+        },
+        "modelId": "qwen3-32b",
+        "toolCallId": null,
+        "parseStatus": "parsed",
+        "usageStatus": "reported",
+        "finishReason": "stop",
+        "generationId": "6cc07622-4301-434a-ba79-648aa42c5c9f",
+        "providerCost": null,
+        "attemptNumber": 1,
+        "modelCallNumber": 4,
+        "modelEvidenceMode": "kiln"
+      }
+    ]
+  },
+  "paymentVerified": false,
+  "merchantVerified": false,
+  "humanAcceptance": false,
+  "serverCommit": "3f1fe3e228f2e6b151d56f2ac7d99efbae7704d2"
+}

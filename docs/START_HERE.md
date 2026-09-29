@@ -4,6 +4,10 @@ Use the hub for shared contracts, evidence and handoff. Code remains in the four
 
 최상위 Floww는 통합·제출 진입점이며 제품 코드는 각 저장소에서 작업합니다. 로컬 상위 작업 폴더 전체를 커밋하지 않습니다.
 
+Start the current integration discussion with [the architecture demonstration handoff](ARCHITECTURE_DEMO_HANDOFF.md): one bounded journey, exact reviewed terms, real authorization, and separately verified payment/result. It distinguishes implemented AI components from pending authentication, wallet and UI integration.
+
+현재 통합은 [핵심 아키텍처 데모 인계](ARCHITECTURE_DEMO_HANDOFF.md)를 기준으로 시작합니다. 하나의 제한된 여정에서 사용자 확인·실제 실행 권한·지급·결과를 연결하며, 구현된 AI 모듈과 남은 인증·지갑·화면 연동을 구분합니다.
+
 ## First ten minutes / 첫 10분
 
 1. Read your repository's `AGENTS.md`, current issue and the linked PR ([server #3](https://github.com/web5five/Floww_Server/pull/3), [hub #2](https://github.com/web5five/Floww/pull/2)). Fetch before editing, inspect the diff and declare owned files.

@@ -6,7 +6,11 @@ Floww는 사용자가 승인한 지출 범위 안에서 AI가 행동을 제안�
 
 This is the integration and submission entry point. The currently runnable server slice validates a confirmed mandate, fetches a server-owned test quote, executes a bounded model/tool conversation, and persists owner-only evidence. The complete wallet-to-purchase experience is still being integrated.
 
+Current integration priority: [prove one core architecture journey](docs/ARCHITECTURE_DEMO_HANDOFF.md), from an exact user-reviewed request to bounded execution and verifiable results. Broader consumer services and fiat funding remain longer-term product scope; actual authentication, wallet authorization and settlement still require integration.
+
 현재 실행 가능한 서버는 확정된 구매 범위를 받아 테스트 견적과 모델의 도구 호출을 검증하고, 소유자별 실행 기록을 저장합니다. 지갑 승인부터 실제 구매까지 이어지는 전체 제품은 통합 중입니다.
+
+현재 우선순위는 [핵심 아키텍처의 한 여정](docs/ARCHITECTURE_DEMO_HANDOFF.md)을 연결하는 것입니다. 다양한 서비스와 법정화폐 충전은 장기 범위로 두며, 실제 인증·지갑 권한·지급은 별도 연동이 필요합니다.
 
 ## Run and inspect / 실행과 확인
 
@@ -32,7 +36,7 @@ The model may search offers, request a quote and propose a stored quote ID. It c
 
 모델은 저장된 견적 ID를 제안하며, 가격·수신자·서명 권한·지급 성공을 임의로 확정할 수 없습니다. 현재 정책 검증을 최종 결제 집행이나 실제 사용자 승인으로 해석하면 안 됩니다.
 
-See [observed module verification](docs/evidence/2026-09-29/README.md): 13 Java tests, 82 independent assertions, 7 Docker checks, and a real four-call Kiln conversation. These verify the server slice only.
+Historical [F006 module verification](docs/evidence/2026-09-29/README.md) records 13 Java tests, 82 independent assertions, 7 Docker checks, and a real four-call Kiln conversation at its stated revisions. The [current component handoff](docs/ARCHITECTURE_DEMO_HANDOFF.md#implemented-component-handoff--구현된-컴포넌트-연결) adds F008 clarification and F009 exact review binding: the F009 Java/PostgreSQL gate passed 55 tests. These are separate runs and component evidence, not a completed purchase; historical live evidence is not reassigned to the current artifact.
 
 Read the [release checklist](docs/RELEASE_CHECKLIST.md) and [integration issue](https://github.com/web5five/Floww/issues/3). Real chain evidence, the combined UI path, the final video and deck remain separate submission gates. A passing manifest check validates declarations, not a completed product.
 

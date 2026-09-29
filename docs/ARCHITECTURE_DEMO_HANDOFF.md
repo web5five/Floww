@@ -39,13 +39,25 @@ Before connecting payment, agree the concrete service, eligible provider mapping
 
 ## Implemented component handoff / 구현된 컴포넌트 연결
 
-Server source: `014c97f7f8f9111648aa26ff06aa3491cf377876` ([F009 PR #8](https://github.com/web5five/Floww_Server/pull/8)). The component pin is not a release acceptance claim.
+Server source: `d5ecca8817157af3f19c62829a0745f12e22490e` ([F010 PR #10](https://github.com/web5five/Floww_Server/pull/10)). The component pin is not a release acceptance claim.
 
 - [F008 AI draft contract](https://github.com/web5five/Floww_Server/blob/014c97f7f8f9111648aa26ff06aa3491cf377876/docs/AI_DRAFT_CONTRACT.md): missing-condition questions and structurally complete proposals. Prior [F008 evidence](https://github.com/web5five/Floww_Server/blob/0866189cd801cc2d4b381204bf31cd4ae5efed60/docs/evidence/f008/README.md) includes one live Kiln draft call at its recorded source.
 - [F009 confirmation binding contract](https://github.com/web5five/Floww_Server/blob/014c97f7f8f9111648aa26ff06aa3491cf377876/docs/REVIEW_CONFIRMATION_BINDING.md): exact review snapshot, trusted current receipt and current server state comparison. [F009 evidence](https://github.com/web5five/Floww_Server/blob/014c97f7f8f9111648aa26ff06aa3491cf377876/docs/evidence/f009/README.md) records 55 passing Java/PostgreSQL tests, including 13 binding tests; no live wallet/approval/payment run.
 
-F008 and F009 expose Java integration components, not public production routes. Core backend and frontend owners still choose the authenticated transport and persistence. The digest is an opaque server-produced review reference, not a signature or client-side spending credential.
+F010 now exposes F008 through authenticated development transport `POST /api/ai/drafts`; F009 remains a Java confirmation-binding component. The current bearer identity is a local test principal. Core backend and frontend owners still integrate real Magic authentication and durable confirmation. The digest is an opaque server-produced review reference, not a signature or client-side spending credential.
 
-F008·F009는 Java 연동 컴포넌트이며 공개 제품 API가 아닙니다. 인증 전송 방식·저장은 담당자가 연결해야 하고, 다이제스트는 서버가 만든 검토 참조값이지 서명이나 지출 자격증명이 아닙니다.
+F010으로 F008 초안을 개발용 HTTP 경로에서 호출할 수 있습니다. F009는 Java 확인 검사이며 실제 Magic 인증·확인 기록 저장은 담당자가 연결해야 합니다. 개발 토큰과 검토 다이제스트는 실제 사용자 지갑 또는 지출 권한을 증명하지 않습니다.
 
 Keep [the end-to-end integration issue](https://github.com/web5five/Floww/issues/3) open until the combined revisions demonstrate actual authorization, model/tool usage, policy blocks, chain receipt and fulfillment/result.
+
+
+## Callable draft API / 호출 가능한 초안 API
+
+- [F010 bilingual HTTP contract](https://github.com/web5five/Floww_Server/blob/d5ecca8817157af3f19c62829a0745f12e22490e/docs/AI_DRAFT_HTTP.md): exact request/envelope, curl, status/error codes, conversation and byte limits. / 요청·응답·오류·예제.
+- [F010 verification](https://github.com/web5five/Floww_Server/blob/d5ecca8817157af3f19c62829a0745f12e22490e/docs/evidence/f010/README.md): 60 passing Java/PostgreSQL tests, 15 independent packaged HTTP checks, and one actual Kiln HTTP call with 1,170 reported tokens. No real-user approval or payment proof. / 모듈·실제 모델 호출 증거이며 지갑·지급 증거는 아닙니다.
+
+Send a user conversation through trusted server-side integration. Show clarification questions, append the user's answer, then show the returned objective, item scope, provider criteria, total cost with fees, absolute deadline and fulfillment criterion. Put model evidence under details. Keep development bearer and Kiln secrets out of browser source. Do not convert READY_FOR_REVIEW to legacy confirmed=true.
+
+신뢰할 수 있는 서버 측 연결로 대화를 보내고, 누락 조건에 답한 뒤 여섯 가지 초안 조건을 보여줍니다. 모델 증거는 상세 보기로 두고, 개발용 Bearer·Kiln 키를 브라우저에 넣지 않습니다. 검토 가능한 초안을 자동 승인으로 처리하지 않습니다.
+
+Next: replace test identity with verified Magic identity; persist the current owner/task/revision and authentic confirmation for F009; connect enforceable wallet authorization and settlement. These remain coordination boundaries, not automatically assigned or accepted tasks. / 다음은 실제 인증·확인 저장·지갑 권한·지급 연결이며 담당자 협의가 필요합니다.

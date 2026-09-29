@@ -12,7 +12,7 @@ Start the current integration discussion with [the architecture demonstration ha
 
 1. Read your repository's `AGENTS.md`, current issue and the linked PR ([server #3](https://github.com/web5five/Floww_Server/pull/3), [hub #2](https://github.com/web5five/Floww/pull/2)). Fetch before editing, inspect the diff and declare owned files.
 2. Read the current [system architecture](https://w3ph4ai.atlassian.net/wiki/spaces/GH/pages/11927569) and [engineering workflow](https://w3ph4ai.atlassian.net/wiki/spaces/GH/pages/12517414). Record the versions you used. Published recommendations still need the relevant owners' review.
-3. Agree the shared API/state/event boundary before parallel implementation. The Java AI/evidence slice is a starting point for integration, not a replacement for production auth or payment state.
+3. Agree the shared API/state/event boundary before parallel implementation. The [F010 draft HTTP contract](https://github.com/web5five/Floww_Server/blob/d5ecca8817157af3f19c62829a0745f12e22490e/docs/AI_DRAFT_HTTP.md) is callable through server-side development authentication. It does not replace Magic identity, durable confirmation or payment state.
 4. Use a focused branch, run the real check commands and open a PR with evidence. During the hackathon, an authorized controller may merge after documented controller/agent review and required CI pass without waiting for teammate approval. Resolve conversations, inspect conflict resolutions and rerun affected checks; never force-push or bypass failed CI.
 5. Record a concise Korean/English handoff under the engineering workflow using Atlassian MCP, linking the real issue, PR, commit and checks. If unavailable, keep a local `PENDING_SYNC` record.
 

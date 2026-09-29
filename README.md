@@ -36,7 +36,7 @@ The model may search offers, request a quote and propose a stored quote ID. It c
 
 모델은 저장된 견적 ID를 제안하며, 가격·수신자·서명 권한·지급 성공을 임의로 확정할 수 없습니다. 현재 정책 검증을 최종 결제 집행이나 실제 사용자 승인으로 해석하면 안 됩니다.
 
-Historical [F006 module verification](docs/evidence/2026-09-29/README.md) records 13 Java tests, 82 independent assertions, 7 Docker checks, and a real four-call Kiln conversation at its stated revisions. The [current component handoff](docs/ARCHITECTURE_DEMO_HANDOFF.md#implemented-component-handoff--구현된-컴포넌트-연결) adds F008 clarification and F009 exact review binding: the F009 Java/PostgreSQL gate passed 55 tests. These are separate runs and component evidence, not a completed purchase; historical live evidence is not reassigned to the current artifact.
+Historical [F006 module verification](docs/evidence/2026-09-29/README.md) records 13 Java tests, 82 independent assertions, 7 Docker checks, and a real four-call Kiln conversation at its stated revisions. The [current component handoff](docs/ARCHITECTURE_DEMO_HANDOFF.md#callable-draft-api--호출-가능한-초안-api) adds F010 conversation-to-draft HTTP on top of F008 clarification and F009 exact review binding: 60 Java/PostgreSQL tests, 15 packaged HTTP checks and one actual Kiln HTTP proposal passed. These are separate runs and component evidence, not a completed purchase; historical live evidence is not reassigned to the current artifact.
 
 Read the [release checklist](docs/RELEASE_CHECKLIST.md) and [integration issue](https://github.com/web5five/Floww/issues/3). Real chain evidence, the combined UI path, the final video and deck remain separate submission gates. A passing manifest check validates declarations, not a completed product.
 

@@ -69,6 +69,9 @@ These are separate verification snapshots. They demonstrate component and integr
 |---|---|
 | [`Floww_Server`](https://github.com/web5five/Floww_Server) | Backend API and server-side purchase flow |
 | [`Floww`](https://github.com/web5five/Floww) | Project hub, shared documentation, and integration references |
+| [`Floww Smart Contract`](https://github.com/web5five/Floww_SmartContract) | Smart Contract |
+| [`Floww Client Frontend`](https://github.com/web5five/Floww_Frontend_Client) | Client Side Frontend |
+| [`Floww Admin Frontend`](https://github.com/web5five/Floww_Frontend_Admin) | Admin Side Frontend |
 
 ---
 

@@ -21,10 +21,10 @@
     {
       "name": "Floww_Server",
       "repository": "https://github.com/web5five/Floww_Server",
-      "commit": "c6f3b58b6aa2bdb21dcb6a0c37f4e90b04f96f13",
+      "commit": "014c97f7f8f9111648aa26ff06aa3491cf377876",
       "required": true,
       "status": "not_verified",
-      "reason": "AI/tools and evidence module locally verified with real Kiln; integrated auth, merchant, wallet and UI release not yet verified"
+      "reason": "AI/tool evidence, draft clarification and exact review-confirmation binding passed component tests; integrated auth, wallet, merchant, payment and UI remain unverified"
     },
     {
       "name": "Floww_SmartContract",

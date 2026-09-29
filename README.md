@@ -1,3 +1,5 @@
+<img width="1672" height="941" alt="ChatGPT Image 2026년 9월 30일 오전 01_56_33" src="https://github.com/user-attachments/assets/57326c53-5180-4457-872b-fbce50abbba0" />
+
 <div align="center">
 
 # 🌊 Floww

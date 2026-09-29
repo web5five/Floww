@@ -13,3 +13,9 @@ The visible Orca GPT-6 Sol session implemented the Java server; the controller s
 Reproduce the local independent checks using [runtime readiness](../../RUNTIME_READINESS.md) and `scripts/verify_server.py`. The app uses test-only development identities. Core auth/migrations/recovery, real merchant, wallet settlement, UI integration, video and deck remain separate gates. Full release validation is expected to fail until they are supplied and reviewed.
 
 Verified server source: [3f1fe3e228f2e6b151d56f2ac7d99efbae7704d2](https://github.com/web5five/Floww_Server/commit/3f1fe3e228f2e6b151d56f2ac7d99efbae7704d2). Controller, container and final live checks used the same packaged JAR hash in the JSON.
+
+## Repository integration follow-up / 저장소 반영
+
+Server PR #3 was merged after its current `verify` checks passed. The release manifest pins merged main c6f3b58b6aa2bdb21dcb6a0c37f4e90b04f96f13. Compared with the frozen runtime source `3f1fe3e228f2e6b151d56f2ac7d99efbae7704d2`, only AGENTS.md changed. The recorded JAR hash and live-model evidence above remain tied to that original tested source; this policy update did not rerun a paid model call or prove end-to-end integration.
+
+서버 구현은 최신 필수 CI 통과 후 main에 병합했습니다. 실행 코드는 검증 당시와 같고 에이전트 지침만 변경됐습니다. 기존 검증 SHA·JAR 해시를 보존하며 전체 구매 완료로 해석하지 않습니다.

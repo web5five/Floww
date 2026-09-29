@@ -5,7 +5,7 @@
     {
       "name": "Floww_Frontend_Client",
       "repository": "https://github.com/web5five/Floww_Frontend_Client",
-      "commit": "3a9ae6e10158d2acb59722f2694cdac0bfbd3f17",
+      "commit": "ed5bf93fef6dad3051611994f4f61fe9d233b03d",
       "required": true,
       "status": "not_verified",
       "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
@@ -13,7 +13,7 @@
     {
       "name": "Floww_Frontend_Admin",
       "repository": "https://github.com/web5five/Floww_Frontend_Admin",
-      "commit": "52774bf8ffe7f11c795259ff5e676fce3fb1882a",
+      "commit": "f6db7526c6fa21e5810611c75897993ce20fdb82",
       "required": false,
       "status": "not_verified",
       "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
@@ -21,7 +21,7 @@
     {
       "name": "Floww_Server",
       "repository": "https://github.com/web5five/Floww_Server",
-      "commit": "3f1fe3e228f2e6b151d56f2ac7d99efbae7704d2",
+      "commit": "c6f3b58b6aa2bdb21dcb6a0c37f4e90b04f96f13",
       "required": true,
       "status": "not_verified",
       "reason": "AI/tools and evidence module locally verified with real Kiln; integrated auth, merchant, wallet and UI release not yet verified"
@@ -29,7 +29,7 @@
     {
       "name": "Floww_SmartContract",
       "repository": "https://github.com/web5five/Floww_SmartContract",
-      "commit": "0aa422d232e2811484ccaa54dbd73beaaec55070",
+      "commit": "6e82db2ace6e103e03f371951aa6403c2fbff044",
       "required": false,
       "status": "not_verified",
       "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
@@ -45,6 +45,6 @@
   "limitations": [
     "Server AI/tools/evidence slice passed isolated tests and a live Kiln conversation; merchant was a local test fixture.",
     "UI, production authentication, real merchant and wallet/chain integration remain pending.",
-    "Human review and final video/deck/chain evidence remain required; see hub issue #3."
+    "Full product/domain acceptance and final video/deck/chain evidence remain pending; see hub issue #3. Controller review and required CI permit authorized hackathon merges without mandatory teammate approval."
   ]
 }

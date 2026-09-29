@@ -9,7 +9,7 @@ Use the hub for shared contracts, evidence and handoff. Code remains in the four
 1. Read your repository's `AGENTS.md`, current issue and the linked PR ([server #3](https://github.com/web5five/Floww_Server/pull/3), [hub #2](https://github.com/web5five/Floww/pull/2)). Fetch before editing, inspect the diff and declare owned files.
 2. Read the current [system architecture](https://w3ph4ai.atlassian.net/wiki/spaces/GH/pages/11927569) and [engineering workflow](https://w3ph4ai.atlassian.net/wiki/spaces/GH/pages/12517414). Record the versions you used. Published recommendations still need the relevant owners' review.
 3. Agree the shared API/state/event boundary before parallel implementation. The Java AI/evidence slice is a starting point for integration, not a replacement for production auth or payment state.
-4. Use a focused branch, run the real check commands and open a PR with evidence. One independent teammate approval is required on protected default branches. Never force-push or silently bypass review.
+4. Use a focused branch, run the real check commands and open a PR with evidence. During the hackathon, an authorized controller may merge after documented controller/agent review and required CI pass without waiting for teammate approval. Resolve conversations, inspect conflict resolutions and rerun affected checks; never force-push or bypass failed CI.
 5. Record a concise Korean/English handoff under the engineering workflow using Atlassian MCP, linking the real issue, PR, commit and checks. If unavailable, keep a local `PENDING_SYNC` record.
 
 각 담당자는 착수 전에 원격 변경·작업 범위·문서 버전을 확인하고 공유 계약을 맞춥니다. 검증 결과는 실제 실행 여부까지 구분하여 이슈·PR·한영 작업 기록에 연결합니다.
@@ -18,7 +18,7 @@ Use the hub for shared contracts, evidence and handoff. Code remains in the four
 
 | Repository | Work to start / 착수할 일 | Existing foundation / 준비된 기반 |
 | --- | --- | --- |
-| [Server](https://github.com/web5five/Floww_Server) | Integrate AI/evidence with production auth, migration, durable execution and wallet path / 인증·마이그레이션·지속 실행·지갑 연결 | Java 21 implementation under review; use the PR README for exact commands / 구현 PR의 실행 문서 확인 |
+| [Server](https://github.com/web5five/Floww_Server) | Integrate AI/evidence with production auth, migration, durable execution and wallet path / 인증·마이그레이션·지속 실행·지갑 연결 | Java 21 AI/evidence implementation; use the pinned server README for exact commands / 고정된 서버 리비전의 실행 문서 확인 |
 | [Client](https://github.com/web5five/Floww_Frontend_Client) | Review Next.js choice and consume agreed progress/result contracts / Next.js 선택 검토·상태 계약 연결 | Collaboration instructions/templates; application and lockfile not yet implemented / 협업 기반만 준비 |
 | [Admin](https://github.com/web5five/Floww_Frontend_Admin) | Start only if selected scenario needs it / 시나리오에 필요할 때 착수 | Optional, no application or dependency installation / 선택 구성 |
 | [Contracts](https://github.com/web5five/Floww_SmartContract) | Decide task wallet versus custom contract, chain/asset/funding and receipt contract / 지갑·체인·자금·영수증 계약 | Collaboration instructions/templates; no deployed contract implied / 배포 완료 아님 |

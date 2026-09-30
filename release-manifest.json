@@ -8,7 +8,7 @@
       "commit": "7a00a6ef6e9a04cf0987b22c2a53e4d3bb98b76d",
       "required": true,
       "status": "not_verified",
-      "reason": "PR10 language and PR11 Magic wallet source are merged; PR11 is deployed to protected Client Preview. Agent-operated Magic OTP with user authorization, Sepolia wallet/SIWE login and Pharmacy A Task account deployment have been observed, but server binding returned 500, B quote pipeline timed out, and A/B/C purchase completion and recovery remain unverified. No human purchase acceptance is claimed."
+      "reason": "PR10 language and PR11 Magic wallet source are merged; PR11 is deployed to protected Client Preview. Agent-operated Magic OTP with user authorization, Sepolia wallet/SIWE login and Pharmacy A TaskAccount deployment were observed, but A binding returned 500 and its original expiry passed without approval, funding or payment. Separate hosted B Task showed a real UI 64>60 budget DENY without chain operations; C, A completion and recovery remain pending. No human purchase acceptance is claimed."
     },
     {
       "name": "Floww_Frontend_Admin",
@@ -46,10 +46,11 @@
     "Component pins are a source snapshot, not a declaration that their combined hosted release passed human acceptance.",
     "Pharmacy quotes/fulfillment are simulated; the recorded payment and fulfillment attestation are actual Sepolia transactions.",
     "Agent-operated protected Client Preview Magic OTP with user authorization, Sepolia wallet/SIWE login and Pharmacy A TaskAccount deployment were observed; its receipt status 1 proves deployment, not mandate approval, payment or fulfillment.",
-    "Admin PR8 is deployed and same-Task authenticated browser audit reached policy/events and PREPARED account; server binding 500 and B quote pipeline timeout leave A/B/C completion, recovery and full hosted purchase acceptance pending.",
-    "Final selected deck, demo video, organizer-defined pre-event disclosure review and final submission remain outstanding."
+    "Admin PR8 is deployed and same-Task authenticated browser audit reached policy/events and PREPARED account; hosted B reached budget DENY with no chain operation, while A binding 500/expired terms and untested C leave full hosted purchase acceptance pending.",
+    "Protected Client Preview is not yet a stable multi-judge access path; Vercel access versus Floww login, cloud backend health, fresh-session isolation, bounded concurrency and per-wallet test ETH/fUSDC funding for actual A remain deployment-owner checks.",
+    "The user-shared eight-slide Google Slides source is not a final deck PDF; final video, deck PDF, organizer-defined pre-event disclosure review and submission receipt remain outstanding."
   ],
-  "recordedAt": "2026-09-30T11:05:00+09:00",
+  "recordedAt": "2026-09-30T11:15:00+09:00",
   "recordedBackendRun": {
     "scope": "local backend, scripted owner, actual Kiln, public Sepolia, simulated pharmacy fulfillment",
     "sourceCommit": "e86e3592eeed512d4f41601a1a46108d45472a39",

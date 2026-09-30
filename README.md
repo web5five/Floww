@@ -13,6 +13,8 @@ The demonstration compares three simulated pharmacies. Kiln proposes a stored qu
 - [Run the components](docs/START_HERE.md) — exact repositories, runtime prerequisites and setup links.
 - [Architecture and API handoff](docs/ARCHITECTURE_DEMO_HANDOFF.md), [release manifest](release-manifest.json), [release checklist](docs/RELEASE_CHECKLIST.md).
 
+The stable Client Preview alias is currently protected. A judge-facing link for multiple independent viewers after recording/submission is **pending**: the deployment owner must confirm cloud-backed availability, Vercel access and separate Floww app login, fresh-session isolation and a safe test-funding path for any judge attempting Pharmacy A. Merely opening the link does not fund a new wallet or enable payment. No bypass token or shared login is published. See the [recording and judge-access checklist](docs/RELEASE_CHECKLIST.md#recording-and-judge-access-readiness).
+
 ## Purchase flow
 
 ```mermaid
@@ -52,7 +54,9 @@ The following is an independently checked **locally hosted backend + scripted ow
 
 The server implements persisted Tasks/quotes, real Kiln proposals, policy checks, TaskAccount binding, approval, durable payment reconciliation and simulated fulfillment. The Client implements authentication gates, three scenarios, separate journey steps, same-Task chat/voice and recovery. The Admin implements role-gated, read-only audit routes. Sources and precise acceptance limits are pinned in the [manifest](release-manifest.json).
 
-The controller recorded configuration/readiness and unauthenticated-route checks on the protected Client Preview; see the dated [readiness observation](docs/evidence/2026-09-30/preview-readiness.md). Current product-origin Magic login, an authenticated Admin audit, and a complete current hosted frontend purchase are tracked separately; do not infer them from local browser fixtures or the backend Sepolia record. Korean/English settings, scenario/chat and voice language are merged in [Client PR #10](https://github.com/web5five/Floww_Frontend_Client/pull/10); rollout and hosted acceptance are separate. Product Magic integration is a follow-up release. The final video and selected deck are not yet published in this hub.
+The [dated readiness observation](docs/evidence/2026-09-30/preview-readiness.md) separates historical F031 proof from agent-operated hosted checks. With user OTP authorization, the hosted Magic path reached Sepolia wallet/SIWE login and an owner-signed A account deployment; that original Task expired after a binding error without payment. Hosted B Task `f397ce66-1c8a-42a1-bfbb-8e3b43f7f2e5` then reached `BUDGET_EXCEEDED` (64 > 60 fUSDC), and C Task `826ef077-484b-4031-b822-711db1834053` reached `RECIPIENT_NOT_ALLOWED` (19 fUSDC), both without chain operations. Actual Admin login and an audit of the original A Task were observed. New A Task `f17fcaba-7e7e-4efe-8ef6-8bd8ba698e37` is at wallet approval; hosted payment, fulfillment and recovery remain unverified.
+
+At the 11:31 KST source snapshot, [Client PR #12](https://github.com/web5five/Floww_Frontend_Client/pull/12) and [Server PR #42](https://github.com/web5five/Floww_Server/pull/42) are merged; [Client PR #13](https://github.com/web5five/Floww_Frontend_Client/pull/13) is open. The stable protected Client alias still serves source `7a00a6e`, connected to Backend **Preview** source `ae369a3`. Health and nonce DB-write checks passed, followed by five parallel health requests and ten mixed read-only requests with expected statuses. These checks do not establish ten-judge purchase acceptance. The user uploaded the [eight-slide deck](https://docs.google.com/presentation/d/1GFQ5FflJ9HU2TjGv9FYD5zU2wfm_Hsfc/edit); final English export hashes are in the dated evidence, while viewer access, final video and submission receipt remain unverified.
 
 ## Repositories
 

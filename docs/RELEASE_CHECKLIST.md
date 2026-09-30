@@ -23,3 +23,17 @@ The recorded deadline is 2026-09-30 12:00 KST. The submission owner must recheck
 `python3 scripts/validate_manifest.py` checks structure and declared evidence paths without pretending unfinished components are ready. `python3 scripts/validate_manifest.py --complete` is the stricter release gate: required revisions and every evidence category must be present, and `releaseStatus` must be `verified`. A manifest never replaces review of the referenced evidence.
 
 Use immutable 40-character component commit SHAs, not moving branches. SHA availability and runtime behavior must be independently checked before changing a component's status to `verified`.
+
+## Recording and judge-access readiness
+
+This local checklist separates recorded facts from work the submission/deployment owners still need to finish. It does not authorize a cloud setting change, load test or final submission.
+
+| Status | Check |
+| --- | --- |
+| Verified source selection | The user uploaded the [eight-slide Google Slides source](https://docs.google.com/presentation/d/1GFQ5FflJ9HU2TjGv9FYD5zU2wfm_Hsfc/edit). Controller-reported final English eight-page PPTX/PDF hashes are preserved in the dated evidence; viewer permissions and public PDF availability remain unverified. |
+| Pending recording | Record an actual operation in at most 3 minutes, with the correct hosted-versus-F031 evidence labels; inspect the exported video and keep personal emails, OTPs, credentials, private keys and protection-bypass URLs/tokens out of frames and narration. Hosted B/C DENYs are observed; do not fabricate the still-missing hosted A payment result. |
+| Pending stable link | Deployment owner verifies a durable **cloud-backed** Client URL after recording/submission; no Mac-local backend, expiring Preview-only session or unreviewed protection bypass may stand in for judge access. Document the separate Vercel access gate and Floww app login for multiple judges without a shared Admin credential or public signer key. |
+| Pending independent sessions | Using judge-like fresh sessions, confirm each judge signs in with their own identity and sees only their own Tasks; confirm Admin remains role-gated and no owner Task leaks. Test access after a fresh browser/session, not just the recording session. |
+| Pending test funding | Public overview and B/C policy scenarios can be reviewed without chain funding, but an actual A wallet path needs test ETH for gas and Floww fixture fUSDC **per judge wallet**. The app does not provide a local faucet/burner balance. Deployment owner must supply a safe faucet or controlled test-funding source, exact instructions and per-wallet limits; opening the hosted link alone cannot pay. Never distribute a shared signer/private key. |
+| Read-only capacity observed; judge purchase pending | Backend Preview `ae369a3`: five parallel health requests returned 200 (3–18.14 seconds); the subsequent ten mixed read-only requests returned expected health 200 / unauthenticated Task 401. This is request-level readiness, not ten independent logged-in judges or purchase capacity. |
+| Pending freeze/submission | Pin the exact Client/Admin/Server/Contract and hosted deployment SHAs; verify public links, viewer permission, final deck PDF (at most 10 pages), video, disclosure and release manifest. Submission owner records the final form/receipt and freeze point before calling this submission-ready. |

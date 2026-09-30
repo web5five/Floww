@@ -5,26 +5,26 @@
     {
       "name": "Floww_Frontend_Client",
       "repository": "https://github.com/web5five/Floww_Frontend_Client",
-      "commit": "5be68d257d979a313ec7f4303bef49b481ada270",
+      "commit": "042b4ea8ce96b0fbed86340c3105e4c812ea1f4f",
       "required": true,
       "status": "not_verified",
-      "reason": "PR10 language/settings/scenario/chat/voice source passed local and CI tests and merged. Previous5003d0a Preview readiness observation is separate; current hosted human wallet-to-purchase and newMagic acceptance remain pending."
+      "reason": "PR12 is merged; PR13 cold-start deadlines at 6e7fe89840681d15f2b40be698219a761617fcf5 is still open at this snapshot. Stable protected Client Preview remains source 7a00a6ef6e9a04cf0987b22c2a53e4d3bb98b76d connected to the healthy Backend Preview. Hosted B and C reached DENY without chain operations. New A Task f17fcaba-7e7e-4efe-8ef6-8bd8ba698e37 is at wallet approval; hosted payment and fulfillment remain unverified."
     },
     {
       "name": "Floww_Frontend_Admin",
       "repository": "https://github.com/web5five/Floww_Frontend_Admin",
-      "commit": "74fe6f40c263735c7cfb705eccb447e2c88bfbfb",
+      "commit": "d64468b817023a8bddace22676b36cab85b32d30",
       "required": true,
       "status": "not_verified",
-      "reason": "Deployed login and unauthenticated 401 verified; authenticated ADMIN audit pending operator account provisioning."
+      "reason": "PR8 cold backend sign-in fix is merged and deployed READY to Admin Production. Controller observed real browser login and a dashboard read of the same hosted Pharmacy A Task with policy/events and a PREPARED account; completed-payment audit remains unverified."
     },
     {
       "name": "Floww_Server",
       "repository": "https://github.com/web5five/Floww_Server",
-      "commit": "153b5f3e78467f1dc5cbc8d58d9c86ee52aaf8c6",
+      "commit": "f729b0efc442514262f0ca108ab444aba841cccd",
       "required": true,
       "status": "not_verified",
-      "reason": "Java/PostgreSQL checks passed at this source; public Sepolia evidence below is explicitly tied to its earlier frozen runtime. Current hosted full user path remains a separate acceptance gate."
+      "reason": "PR42 transaction-pooler runtime fix merged at 11:26:59 KST. Actual Backend Preview runs equivalent patch source ae369a3510f2b73e749fbe863f24430092f117ac; health and disposable nonce DB-write returned 200, five parallel health checks passed, and ten mixed read-only requests returned expected statuses. This is Preview readiness, not Production or ten-judge purchase acceptance."
     },
     {
       "name": "Floww_SmartContract",
@@ -45,10 +45,12 @@
   "limitations": [
     "Component pins are a source snapshot, not a declaration that their combined hosted release passed human acceptance.",
     "Pharmacy quotes/fulfillment are simulated; the recorded payment and fulfillment attestation are actual Sepolia transactions.",
-    "Protected Preview access, current product Magic OTP, authenticated Admin audit, and current hosted wallet-to-purchase acceptance must be checked independently.",
-    "Final selected deck, demo video, organizer-defined pre-event disclosure review and final submission remain outstanding."
+    "Agent-operated protected Client Preview Magic OTP with user authorization, Sepolia wallet/SIWE login and Pharmacy A TaskAccount deployment were observed; its receipt status 1 proves deployment, not mandate approval, payment or fulfillment.",
+    "Admin PR8 is deployed and authenticated browser audit reached policy/events and PREPARED account on the old A Task. Hosted B and C reached budget and recipient DENY without chain operations. The original A expired; new A remains at wallet approval with hosted payment, fulfillment and recovery unverified.",
+    "Protected stable Client Preview now points to healthy Backend Preview. Five parallel health checks and ten mixed read-only requests passed their expected statuses; fresh logged-out judge access, independent-owner isolation and per-wallet ETH/fUSDC funding remain unverified.",
+    "The user uploaded the eight-slide Google Slides source and final English eight-page PPTX/PDF hashes are recorded in the dated evidence. Viewer permission, public PDF evidence link, final video, organizer-defined disclosure review and submission receipt remain outstanding."
   ],
-  "recordedAt": "2026-09-30T09:57:00+09:00",
+  "recordedAt": "2026-09-30T11:31:00+09:00",
   "recordedBackendRun": {
     "scope": "local backend, scripted owner, actual Kiln, public Sepolia, simulated pharmacy fulfillment",
     "sourceCommit": "e86e3592eeed512d4f41601a1a46108d45472a39",
@@ -57,5 +59,13 @@
     "jarSha256": "cc58571cbe975afb7ad1335909b4a81b925c7d88925aaf4c1482c696cae7d7a2",
     "report": "https://github.com/web5five/Floww_Server/blob/6f1d3029885808bd35d706b47688b24166ed9273/docs/F031_INDEPENDENT_SEPOLIA.md",
     "fulfillmentTransaction": "https://sepolia.etherscan.io/tx/0x8b6af8b662b87b86896e7179483da8fe94b11c60d6494fd20c6fc198f669ba60"
+  },
+  "hostedSnapshot": {
+    "clientSourceCommit": "7a00a6ef6e9a04cf0987b22c2a53e4d3bb98b76d",
+    "clientUrl": "https://floww-client-demo-preview-geond.vercel.app",
+    "backendEnvironment": "Preview",
+    "backendSourceCommit": "ae369a3510f2b73e749fbe863f24430092f117ac",
+    "backendDeploymentId": "dpl_qwyDMrZapPBZ2irRPBd8DkfHQjcu",
+    "evidence": "docs/evidence/2026-09-30/preview-readiness.md"
   }
 }

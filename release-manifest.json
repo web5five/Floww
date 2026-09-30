@@ -8,7 +8,7 @@
       "commit": "7a00a6ef6e9a04cf0987b22c2a53e4d3bb98b76d",
       "required": true,
       "status": "not_verified",
-      "reason": "PR10 language source and PR11 Magic product wallet integration are merged; PR11 is deployed to protected Client Preview. Controller observed hosted Magic email OTP, Sepolia wallet/SIWE server login and /pharmacy access, but A/B/C completion, recovery and a full human wallet-to-purchase path remain unverified. Earlier 5003d0a readiness is historical."
+      "reason": "PR10 language and PR11 Magic wallet source are merged; PR11 is deployed to protected Client Preview. Agent-operated Magic OTP with user authorization, Sepolia wallet/SIWE login and Pharmacy A Task account deployment have been observed, but server binding returned 500, B quote pipeline timed out, and A/B/C purchase completion and recovery remain unverified. No human purchase acceptance is claimed."
     },
     {
       "name": "Floww_Frontend_Admin",
@@ -16,7 +16,7 @@
       "commit": "d64468b817023a8bddace22676b36cab85b32d30",
       "required": true,
       "status": "not_verified",
-      "reason": "PR8 cold backend sign-in fix is merged on main. Earlier Production Admin UI deployment and ADMIN API/BFF authentication checks are recorded separately; PR8 deployment and authenticated browser audit on the current UI remain to be confirmed."
+      "reason": "PR8 cold backend sign-in fix is merged and deployed READY to Admin Production. Controller observed real browser login and a dashboard read of the same hosted Pharmacy A Task with policy/events and a PREPARED account; completed-payment audit remains unverified."
     },
     {
       "name": "Floww_Server",
@@ -45,11 +45,11 @@
   "limitations": [
     "Component pins are a source snapshot, not a declaration that their combined hosted release passed human acceptance.",
     "Pharmacy quotes/fulfillment are simulated; the recorded payment and fulfillment attestation are actual Sepolia transactions.",
-    "Protected Client Preview Magic OTP, Sepolia wallet/SIWE login and /pharmacy access were observed by the controller on the PR11 deployment; no hosted A/B/C purchase, recovery, chain payment or fulfillment follows from that login.",
-    "Current authenticated Admin browser audit, exact Admin PR8 deployment, and full hosted wallet-to-purchase acceptance remain pending.",
+    "Agent-operated protected Client Preview Magic OTP with user authorization, Sepolia wallet/SIWE login and Pharmacy A TaskAccount deployment were observed; its receipt status 1 proves deployment, not mandate approval, payment or fulfillment.",
+    "Admin PR8 is deployed and same-Task authenticated browser audit reached policy/events and PREPARED account; server binding 500 and B quote pipeline timeout leave A/B/C completion, recovery and full hosted purchase acceptance pending.",
     "Final selected deck, demo video, organizer-defined pre-event disclosure review and final submission remain outstanding."
   ],
-  "recordedAt": "2026-09-30T10:57:00+09:00",
+  "recordedAt": "2026-09-30T11:05:00+09:00",
   "recordedBackendRun": {
     "scope": "local backend, scripted owner, actual Kiln, public Sepolia, simulated pharmacy fulfillment",
     "sourceCommit": "e86e3592eeed512d4f41601a1a46108d45472a39",

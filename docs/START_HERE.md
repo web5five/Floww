@@ -1,44 +1,41 @@
-# Start here / 아침 작업 시작 안내
+# Run and contribute / 실행 및 작업 시작
 
-Use the hub for shared contracts, evidence and handoff. Code remains in the four component repositories. The parent workspace is not a Git repository.
+Product code remains in four component repositories. The hub records release pins and evidence; cloning it alone does not start the application. 최상위 저장소는 코드 실행기가 아닌 통합·제출 진입점입니다.
 
-최상위 Floww는 통합·제출 진입점이며 제품 코드는 각 저장소에서 작업합니다. 로컬 상위 작업 폴더 전체를 커밋하지 않습니다.
+## Obtain the code
 
-Start the current integration discussion with [the architecture demonstration handoff](ARCHITECTURE_DEMO_HANDOFF.md): one bounded journey, exact reviewed terms, real authorization, and separately verified payment/result. It distinguishes implemented AI components from pending authentication, wallet and UI integration.
+```sh
+git clone https://github.com/web5five/Floww.git
+git clone https://github.com/web5five/Floww_Server.git
+git clone https://github.com/web5five/Floww_Frontend_Client.git
+git clone https://github.com/web5five/Floww_SmartContract.git
+git clone https://github.com/web5five/Floww_Frontend_Admin.git
+```
 
-현재 통합은 [핵심 아키텍처 데모 인계](ARCHITECTURE_DEMO_HANDOFF.md)를 기준으로 시작합니다. 하나의 제한된 여정에서 사용자 확인·실제 실행 권한·지급·결과를 연결하며, 구현된 AI 모듈과 남은 인증·지갑·화면 연동을 구분합니다.
+For a repeatable review, check out the full component SHAs in [release-manifest.json](../release-manifest.json). For active development, fetch the latest accepted main first and preserve existing work. Never mistake the evidence run's old runtime SHA for the latest component or deployment.
 
-## First ten minutes / 첫 10분
+## Runtime and setup
 
-1. Read your repository's `AGENTS.md`, current issue and the linked PR ([server #3](https://github.com/web5five/Floww_Server/pull/3), [hub #2](https://github.com/web5five/Floww/pull/2)). Fetch before editing, inspect the diff and declare owned files.
-2. Read the current [system architecture](https://w3ph4ai.atlassian.net/wiki/spaces/GH/pages/11927569) and [engineering workflow](https://w3ph4ai.atlassian.net/wiki/spaces/GH/pages/12517414). Record the versions you used. Published recommendations still need the relevant owners' review.
-3. Agree the shared API/state/event boundary before parallel implementation. The [F010 draft HTTP contract](https://github.com/web5five/Floww_Server/blob/d5ecca8817157af3f19c62829a0745f12e22490e/docs/AI_DRAFT_HTTP.md) is callable through server-side development authentication. It does not replace Magic identity, durable confirmation or payment state.
-4. Use a focused branch, run the real check commands and open a PR with evidence. During the hackathon, an authorized controller may merge after documented controller/agent review and required CI pass without waiting for teammate approval. Resolve conversations, inspect conflict resolutions and rerun affected checks; never force-push or bypass failed CI.
-5. Record a concise Korean/English handoff under the engineering workflow using Atlassian MCP, linking the real issue, PR, commit and checks. If unavailable, keep a local `PENDING_SYNC` record.
+| Component | Run instructions |
+| --- | --- |
+| Server | Java 21, PostgreSQL 16.4, Maven Wrapper and Flyway. Use the historical [container smoke runbook](https://github.com/web5five/Floww_Server/blob/153b5f3e78467f1dc5cbc8d58d9c86ee52aaf8c6/docs/CONTAINER_RUNTIME_KO_EN.md), placeholder `.env.example`, and `./mvnw -B verify` for build/tests. To start the API with a configured database/environment, run `./mvnw spring-boot:run`; health is `GET /actuator/health`. [TaskAccount configuration and API](https://github.com/web5five/Floww_Server/blob/153b5f3e78467f1dc5cbc8d58d9c86ee52aaf8c6/docs/TASKACCOUNT_E2E_KO_EN.md) governs the selected-purchase path. |
+| Client | Node 24.19, pinned package lock: `npm ci`, configure `.env.local` from the example, then `npm run dev -- --port 3001`. Production: `npm run build` and `npm start -- --port 3001`. A configured backend and real owner session are required for business actions. |
+| Admin | Node 24.19, pinned lock: `npm ci`, configure server-only `FLOWW_SERVER_URL`, then run the [Admin README](https://github.com/web5five/Floww_Frontend_Admin) commands. Requires an ADMIN login; do not promote a normal user as a shortcut. |
+| Contract | Follow the pinned [Foundry build/test instructions](https://github.com/web5five/Floww_SmartContract/blob/d4e6a7d7b7635634b8a59f7c87bba91d3b311f9d/README.md). Tests do not require a fresh public deployment. Never rerun broadcast commands just to inspect an existing receipt. |
 
-각 담당자는 착수 전에 원격 변경·작업 범위·문서 버전을 확인하고 공유 계약을 맞춥니다. 검증 결과는 실제 실행 여부까지 구분하여 이슈·PR·한영 작업 기록에 연결합니다.
+The server's historical fixture/API guides document older component checks. Use the [current frontend E2E handoff](https://github.com/web5five/Floww_Server/blob/153b5f3e78467f1dc5cbc8d58d9c86ee52aaf8c6/docs/FRONTEND_E2E_HANDOFF_KO_EN.md) together with the Client's [TaskAccount handoff](https://github.com/web5five/Floww_Frontend_Client/blob/5003d0a49d3a6c46c1055b178a722e9815f37ad7/docs/task-execution-handoff.md). The current TaskAccount mode uses its own account API sequence; legacy `confirmed:true` and `REVIEWED` do not grant spending authority.
 
-## Component boundaries / 구성요소 경계
+## Environment boundaries
 
-| Repository | Work to start / 착수할 일 | Existing foundation / 준비된 기반 |
-| --- | --- | --- |
-| [Server](https://github.com/web5five/Floww_Server) | Integrate AI/evidence with production auth, migration, durable execution and wallet path / 인증·마이그레이션·지속 실행·지갑 연결 | Java 21 AI/evidence implementation; use the pinned server README for exact commands / 고정된 서버 리비전의 실행 문서 확인 |
-| [Client](https://github.com/web5five/Floww_Frontend_Client) | Review Next.js choice and consume agreed progress/result contracts / Next.js 선택 검토·상태 계약 연결 | Collaboration instructions/templates; application and lockfile not yet implemented / 협업 기반만 준비 |
-| [Admin](https://github.com/web5five/Floww_Frontend_Admin) | Start only if selected scenario needs it / 시나리오에 필요할 때 착수 | Optional, no application or dependency installation / 선택 구성 |
-| [Contracts](https://github.com/web5five/Floww_SmartContract) | Decide task wallet versus custom contract, chain/asset/funding and receipt contract / 지갑·체인·자금·영수증 계약 | Collaboration instructions/templates; no deployed contract implied / 배포 완료 아님 |
+Keep Kiln, executor/reporter keys, session secrets and Preview access values server-only and outside Git. A Magic publishable key is the only intentionally public Magic configuration; do not put a secret key in `NEXT_PUBLIC_*`. Configure exact frontend origin and Sepolia chain IDs consistently. Missing settings must disable actions rather than synthesize results.
 
-Redis, pgvector, Kafka, Eureka, Config Server, browser sandboxing and a separate Python service remain outside the default runtime. Add any only after a documented need and owner review.
+Redis, pgvector, Kafka, Eureka, Config Server, browser sandboxing and a separate Python service are not default runtime dependencies.
 
-## Credentials and local environment / 계정·로컬 환경
+## Checks and handoff
 
-- Use team9 only. Keep Kiln credentials in the server environment or approved secret store; never in browser code, Git, issues, Confluence or screenshots.
-- Local development bearer tokens are test principals. They do not establish wallet ownership or production login.
-- The Java module uses PostgreSQL and Maven Wrapper. Check its current README before running; do not install frontend/admin dependencies until those applications exist.
-- A health response only proves the process is up. Missing merchant/payment integrations remain unavailable.
-- Stop the specific processes you start; do not stop unrelated team or personal services. Do not delete shared databases during cleanup.
+- Client/Admin: pinned install, lint, typecheck, build and relevant browser/runtime tests. Fixtures test application behavior but do not prove a real provider or payment.
+- Server: Java/PostgreSQL tests; inspect actual HTTP contracts and owner/role isolation. Read the evidence's recorded runtime identity before reproducing a live run.
+- Contract: pinned Foundry tests and actual read-only chain evidence when needed.
+- Hub: `python3 scripts/validate_manifest.py`. The structural check does not certify release readiness. `--complete` must fail while required live checks or final artifacts remain missing.
 
-## Review and submit / 리뷰·제출
-
-Use [CONTRIBUTING](../CONTRIBUTING.md), [worklog template](WORKLOG_TEMPLATE.md), and [release checklist](RELEASE_CHECKLIST.md). A protected branch and passing structural manifest check do not prove a working purchase. Only mark a release verified after checking the combined revisions, real inference, payment evidence, UI path and required submission artifacts.
-
-리뷰 가능한 구현과 심사 제출 완료를 구분합니다. 최종 공개 README와 실행 증거는 팀 전용 Confluence 접근 없이도 확인할 수 있어야 합니다.
+Record owned files and integration boundaries before parallel work. Use [CONTRIBUTING](../CONTRIBUTING.md), [worklog template](WORKLOG_TEMPLATE.md), and [release checklist](RELEASE_CHECKLIST.md). Keep final public evidence understandable without access to private Confluence. 최종 사용자 화면 검증·공개 증거·제출 파일은 모듈 테스트와 별도로 확인합니다.

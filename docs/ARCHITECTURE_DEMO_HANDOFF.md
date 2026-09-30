@@ -1,3 +1,5 @@
+> Historical planning and F008–F010 component handoff. Current selected-purchase integration is documented in the [hub README](../README.md), [Server TaskAccount API](https://github.com/web5five/Floww_Server/blob/153b5f3e78467f1dc5cbc8d58d9c86ee52aaf8c6/docs/TASKACCOUNT_E2E_KO_EN.md), and [public Sepolia evidence](https://github.com/web5five/Floww_Server/blob/6f1d3029885808bd35d706b47688b24166ed9273/docs/F031_INDEPENDENT_SEPOLIA.md). The older pending claims below describe their original snapshots, not current implementation status.
+
 # Architecture demonstration handoff / 핵심 아키텍처 데모 인계
 
 This is an integration recommendation, not proof of a completed Floww purchase or unanimous team acceptance. Keep broader consumer services and fiat infrastructure in the long-term product vision while proving one bounded journey.

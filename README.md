@@ -1,149 +1,83 @@
-<img width="1672" height="941" alt="ChatGPT Image 2026년 9월 30일 오전 01_56_33" src="https://github.com/user-attachments/assets/57326c53-5180-4457-872b-fbce50abbba0" />
+Floww connects an AI-selected purchase to user-approved spending limits, an exact Sepolia payment, and a traceable result.
 
-<div align="center">
+# Floww by Web5
 
-# 🌊 Floww
+Floww는 AI가 선택한 구매를 사용자가 확인한 지출 조건, 정확한 테스트넷 결제, 확인 가능한 결과로 연결합니다.
 
-### Smarter crypto trading starts with a better flow.
+The demonstration compares three simulated pharmacies. Kiln proposes a stored quote; deterministic policy checks the budget and allowed recipient; the user approves that exact purchase. A task-scoped account enforces the frozen terms. Payment and fulfillment are verified separately.
 
-AI-powered crypto market analysis, built to help traders make clearer decisions.
+## Try and run
 
-[![Repository](https://img.shields.io/badge/GitHub-Floww-4261FF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/web5five/Floww)
-[![Status](https://img.shields.io/badge/Status-Hackathon%20Build-FFFF5C?style=for-the-badge&labelColor=1E1E1E)](#project-status)
+- [Client Preview](https://floww-client-demo-preview-geond.vercel.app/) — team access is required. The plain URL may show Vercel authentication. Request the team access link; no access token is published here.
+- [Admin audit console](https://floww-admin-demo.vercel.app/) — a separately provisioned ADMIN account is required. A visible login page is not proof of an authenticated audit session.
+- [Run the components](docs/START_HERE.md) — exact repositories, runtime prerequisites and setup links.
+- [Architecture and API handoff](docs/ARCHITECTURE_DEMO_HANDOFF.md), [release manifest](release-manifest.json), [release checklist](docs/RELEASE_CHECKLIST.md).
 
-</div>
-
----
-
-## ⚡ Quick Links
-
-| Resource | Description |
-|---|---|
-| [🚀 Start Here](./docs/START_HERE.md) | Project overview and first steps |
-| [🎬 Architecture & Demo Handoff](./docs/ARCHITECTURE_DEMO_HANDOFF.md) | System architecture and demo flow |
-| [📦 Release Manifest & Checklist](./docs/RELEASE_MANIFEST_AND_CHECKLIST.md) | Release scope and readiness checklist |
-| [🔌 API Contract](./docs/API_CONTRACT.md) | Backend and integration API details |
-| [🧭 Technical Walkthrough](./docs/TECHNICAL_WALKTHROUGH.md) | Technical overview of the system |
-| [🗂️ Issue #3](https://github.com/web5five/Floww/issues/3) | Hackathon integration tracking |
-| [🤝 Contributing](./CONTRIBUTING.md) | How to contribute |
-
----
-
-## 💡 What is Floww?
-
-Floww is an AI-assisted crypto trading prototype that connects market analysis, trade proposals, and wallet-based execution into one guided experience.
-
-The project explores how AI can help users understand market conditions and review a trade proposal before deciding whether to sign and execute it.
-
-> **Floww helps users make informed decisions. It does not promise returns or provide guaranteed financial outcomes.**
-
----
-
-## 🧭 The Flow
+## Purchase flow
 
 ```mermaid
 flowchart LR
-    A[Market Data] --> B[AI Analysis]
-    B --> C[Trade Proposal]
-    C --> D[User Review]
-    D --> E[Wallet Signature]
-    E --> F[Execution]
+  A[Sign in] --> B[Task and purchase boundaries]
+  B --> C[Stored pharmacy quotes]
+  C --> D[Kiln proposal]
+  D --> E{Deterministic policy}
+  E -->|DENY| F[Recorded stop, no payment]
+  E -->|ALLOW| G[Review exact purchase]
+  G --> H[Owner wallet approval and funding]
+  H --> I[TaskAccount payment]
+  I --> J[Receipt and fulfillment verification]
+  J --> K[Result and audit trail]
 ```
 
----
+Login is identity, not spending approval. The model cannot change recipients, budgets or authority. One business approval can require several wallet prompts for deployment, signature, allowance and funding. The three scenario routes and chat refer to the same server Task. Voice can request a scenario for on-screen confirmation; it cannot sign or pay.
 
-## 📍 Project Status
+## Recorded execution evidence
 
-Floww is a hackathon build. The team is prioritizing an end-to-end purchase flow and integration between the backend, AI/Kiln, and wallet components.
+The following is an independently checked **locally hosted backend + scripted owner + public Sepolia** run on September 30 KST. It is not a claim that the current hosted frontend has passed a complete human-operated purchase. Simulated pharmacy fulfillment is not physical medicine delivery.
 
-The current project documentation distinguishes between verified component tests and a completed user purchase. Historical integration evidence includes:
+| Stage | Recorded result and public evidence |
+| --- | --- |
+| Task / account | Task `5665a02a-2300-4fab-866f-02a60ae57ead`; [TaskAccount](https://sepolia.etherscan.io/address/0x219e7bfB4C4788Fa2b35638957B53a6900bF0655) |
+| Actual Kiln inference | `qwen3-32b` selected Pharmacy A; tool-call ID, generation ID and reported 974 tokens appear in the `model` object of the [machine record](https://github.com/web5five/Floww_Server/blob/6f1d3029885808bd35d706b47688b24166ed9273/docs/evidence/f031/sepolia-e2e-result.json). |
+| Exact payment | 23.5 fUSDC = `23500000` base units; [payment transaction](https://sepolia.etherscan.io/tx/0x2e3110192ca84dbcafb5d6a0e925dd40cdd5fc5c700d161261afa10979281708). The receipt, PaymentExecuted and token Transfer were matched. |
+| Fulfillment | [Reporter transaction](https://sepolia.etherscan.io/tx/0x8b6af8b662b87b86896e7179483da8fe94b11c60d6494fd20c6fc198f669ba60) records the matching simulated-fulfillment evidence hash before Task COMPLETED. |
+| Denied attempt B | 64 fUSDC exceeds the 60 fUSDC Task cap: `BUDGET_EXCEEDED`. |
+| Denied attempt C | Recipient outside the allowed set: `RECIPIENT_NOT_ALLOWED`. |
+| Stops before payment | Both DENYs have null payment hashes, zero accounts/signed operations and unchanged public executor nonce. [DB evidence](https://github.com/web5five/Floww_Server/blob/6f1d3029885808bd35d706b47688b24166ed9273/docs/evidence/f031/sepolia-db-evidence.json). Local instrumented tests additionally assert zero broadcasts; public signing calls were not instrumented. |
+| Recovery | The same payment ID/hash survived backend restart; reconciliation and repeated completion requests did not allocate another executor nonce. |
 
-- **F006:** 13 Java tests, 82 assertions, and 7 Docker checks; a real four-call Kiln conversation was recorded.
-- **F010:** 60 Java/PostgreSQL tests and 15 HTTP checks; one actual Kiln HTTP proposal was recorded.
+[Independent verification report: 55 checks, exact runtime/JAR identity and limitations](https://github.com/web5five/Floww_Server/blob/6f1d3029885808bd35d706b47688b24166ed9273/docs/F031_INDEPENDENT_SEPOLIA.md). The test token is faucet-enabled fUSDC on Sepolia, not Circle USDC or real money. ETH gas is separate from the fUSDC purchase cap.
 
-These are separate verification snapshots. They demonstrate component and integration progress, but **do not establish that a complete purchase flow has been completed**.
+## Implementation and acceptance
 
----
+The server implements persisted Tasks/quotes, real Kiln proposals, policy checks, TaskAccount binding, approval, durable payment reconciliation and simulated fulfillment. The Client implements authentication gates, three scenarios, separate journey steps, same-Task chat/voice and recovery. The Admin implements role-gated, read-only audit routes. Sources and precise acceptance limits are pinned in the [manifest](release-manifest.json).
 
-## 🧩 Repository Guide
+The controller recorded configuration/readiness and unauthenticated-route checks on the protected Client Preview; see the dated [readiness observation](docs/evidence/2026-09-30/preview-readiness.md). Current product-origin Magic login, an authenticated Admin audit, and a complete current hosted frontend purchase are tracked separately; do not infer them from local browser fixtures or the backend Sepolia record. Korean/English settings, scenario/chat and voice language are merged in [Client PR #10](https://github.com/web5five/Floww_Frontend_Client/pull/10); rollout and hosted acceptance are separate. Product Magic integration is a follow-up release. The final video and selected deck are not yet published in this hub.
 
-| Repository area | What lives here |
-|---|---|
-| [`Floww_Server`](https://github.com/web5five/Floww_Server) | Backend API and server-side purchase flow |
-| [`Floww`](https://github.com/web5five/Floww) | Project hub, shared documentation, and integration references |
-| [`Floww Smart Contract`](https://github.com/web5five/Floww_SmartContract) | Smart Contract |
-| [`Floww Client Frontend`](https://github.com/web5five/Floww_Frontend_Client) | Client Side Frontend |
-| [`Floww Admin Frontend`](https://github.com/web5five/Floww_Frontend_Admin) | Admin Side Frontend |
+## Repositories
 
----
+| Repository | Responsibility |
+| --- | --- |
+| [Floww](https://github.com/web5five/Floww) | Submission entry, component pins, public evidence and handoffs |
+| [Floww_Frontend_Client](https://github.com/web5five/Floww_Frontend_Client) | Next.js user journey, wallet UI, chat and voice |
+| [Floww_Server](https://github.com/web5five/Floww_Server) | Java 21 / Spring Boot, PostgreSQL / Flyway, Kiln, policy and execution |
+| [Floww_SmartContract](https://github.com/web5five/Floww_SmartContract) | Solidity / Foundry task-scoped payment account |
+| [Floww_Frontend_Admin](https://github.com/web5five/Floww_Frontend_Admin) | Next.js ADMIN-only audit console |
 
-## 👥 Participants
+## Prior work and event work disclosure
 
-| Role | Participant | Focus |
-|---|---|---|
-| 🧭 Product & Architecture | Michael | Product direction, system architecture, and integration priorities |
-| ⚙️ Backend & Core API | Choi Ria | Backend services, API contracts, and purchase-flow integration |
-| 🧠 AI, Kiln & Evidence | Geondong Kim | AI proposal flow, Kiln integration, and verification evidence |
-| ⛓️ Blockchain & Smart Account | Taehoon Choi | Wallet signing, smart-account, and blockchain integration |
-| 🎨 Frontend & UX | Shinwoo Park | User experience, frontend flow, and interface integration |
+This project uses open-source frameworks and SDKs including Next.js, React, Spring Boot, PostgreSQL, Foundry/OpenZeppelin and wallet SDKs. The Client includes the [Scaffold-ETH 2 wallet-toolkit attribution and adaptation record](https://github.com/web5five/Floww_Frontend_Client/blob/5003d0a49d3a6c46c1055b178a722e9815f37ad7/docs/F033A_SCAFFOLD_ETH_NOTICE.md). These dependencies are not team-original code.
 
----
+Earlier PAIVERA concepts and visual/planning references informed the work. The Client's [import worklog](https://github.com/web5five/Floww_Frontend_Client/blob/5003d0a49d3a6c46c1055b178a722e9815f37ad7/docs/worklogs/client-2-import.md) explicitly records that it was developed locally with Codex assistance before its repository import; an import date must not be treated as the date all code was authored. We do not claim that every concept, asset or line began at the event. The recorded September 29–30 Floww integration includes the Task/quote/Kiln path, wallet authentication, canonical TaskAccount binding, payment/recovery/fulfillment and Client/Admin integration. Component histories and linked PRs preserve the scope and chronology. Exact organizer-defined pre-event boundaries and any additional pre-existing material require the team's final disclosure review before submission.
 
-## ✅ Integration Priorities
+## Team
 
-The team is connecting the core purchase flow end to end:
+| Participant | Area |
+| --- | --- |
+| Michael | Product and architecture |
+| Ria Choi | Backend and shared API |
+| Taeheon Choi | Blockchain and TaskAccount |
+| Sinwoo Park | Frontend and user experience |
+| Geondong Kim | AI/Kiln, integration, verification, wallet/Admin and language/voice |
 
-1. Create and process a Task and Mandate.
-2. Retrieve pharmacy quotes.
-3. Create an order from the selected quote.
-4. Connect the AI/Kiln proposal flow.
-5. Verify wallet signing and execution through the integration flow.
-
-See the [API Contract](./docs/API_CONTRACT.md) and [Architecture & Demo Handoff](./docs/ARCHITECTURE_DEMO_HANDOFF.md) for the documented integration details and current acceptance evidence.
-
----
-
-## 🛡️ Release Gates
-
-Before presenting the flow as complete, verify that:
-
-- The documented API contracts match the running implementation.
-- Task, Mandate, quote, and order handling work through the intended path.
-- AI/Kiln proposal behavior is connected to the backend flow.
-- Wallet signing and execution evidence is available for the integrated path.
-- The demo can be reproduced using the documented setup and handoff steps.
-
----
-
-## 🧪 Verification Notes
-
-Test counts and integration evidence are tied to the specific snapshots listed above. They should not be interpreted as proof that every component is currently passing or that a complete purchase has been executed.
-
-Use the [Release Manifest & Checklist](./docs/RELEASE_MANIFEST_AND_CHECKLIST.md) for the current release scope and evidence requirements.
-
----
-
-## 🚀 Getting Started
-
-Start with the project guide:
-
-```bash
-git clone https://github.com/web5five/Floww.git
-cd Floww
-```
-
-Then follow the setup instructions in [Start Here](./docs/START_HERE.md). The project hub links to the relevant repositories and integration documentation.
-
----
-
-## 🤝 Contributing
-
-Contributions and integration work are welcome. Please review the [Contributing Guide](./CONTRIBUTING.md), then use [Issue #3](https://github.com/web5five/Floww/issues/3) to track hackathon integration work.
-
----
-
-<div align="center">
-
-### Built with focus. Shipped with flow. 🌊
-
-</div>
+See [contribution workflow](CONTRIBUTING.md). This repository is a public project hub, not a final contest submission receipt.

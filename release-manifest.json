@@ -5,46 +5,57 @@
     {
       "name": "Floww_Frontend_Client",
       "repository": "https://github.com/web5five/Floww_Frontend_Client",
-      "commit": "ed5bf93fef6dad3051611994f4f61fe9d233b03d",
+      "commit": "5be68d257d979a313ec7f4303bef49b481ada270",
       "required": true,
       "status": "not_verified",
-      "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
+      "reason": "PR10 language/settings/scenario/chat/voice source passed local and CI tests and merged. Previous5003d0a Preview readiness observation is separate; current hosted human wallet-to-purchase and newMagic acceptance remain pending."
     },
     {
       "name": "Floww_Frontend_Admin",
       "repository": "https://github.com/web5five/Floww_Frontend_Admin",
-      "commit": "f6db7526c6fa21e5810611c75897993ce20fdb82",
-      "required": false,
+      "commit": "74fe6f40c263735c7cfb705eccb447e2c88bfbfb",
+      "required": true,
       "status": "not_verified",
-      "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
+      "reason": "Deployed login and unauthenticated 401 verified; authenticated ADMIN audit pending operator account provisioning."
     },
     {
       "name": "Floww_Server",
       "repository": "https://github.com/web5five/Floww_Server",
-      "commit": "d5ecca8817157af3f19c62829a0745f12e22490e",
+      "commit": "153b5f3e78467f1dc5cbc8d58d9c86ee52aaf8c6",
       "required": true,
       "status": "not_verified",
-      "reason": "Draft HTTP, AI/tool evidence and exact review binding passed component checks, including one real Kiln HTTP proposal; integrated Magic auth, wallet, merchant, payment and UI remain unverified"
+      "reason": "Java/PostgreSQL checks passed at this source; public Sepolia evidence below is explicitly tied to its earlier frozen runtime. Current hosted full user path remains a separate acceptance gate."
     },
     {
       "name": "Floww_SmartContract",
       "repository": "https://github.com/web5five/Floww_SmartContract",
-      "commit": "6e82db2ace6e103e03f371951aa6403c2fbff044",
-      "required": false,
+      "commit": "d4e6a7d7b7635634b8a59f7c87bba91d3b311f9d",
+      "required": true,
       "status": "not_verified",
-      "reason": "Collaboration bootstrap only; application integration is not verified at this revision"
+      "reason": "Exact contract artifact participates in the recorded backend-to-public-Sepolia run; this does not certify the current hosted frontend."
     }
   ],
   "evidence": {
-    "kiln": "docs/evidence/2026-09-29/verification.json",
-    "policyRejections": "docs/evidence/2026-09-29/verification.json",
-    "chainTransaction": null,
+    "kiln": "https://github.com/web5five/Floww_Server/blob/6f1d3029885808bd35d706b47688b24166ed9273/docs/evidence/f031/sepolia-e2e-result.json",
+    "policyRejections": "https://github.com/web5five/Floww_Server/blob/6f1d3029885808bd35d706b47688b24166ed9273/docs/evidence/f031/sepolia-db-evidence.json",
+    "chainTransaction": "https://sepolia.etherscan.io/tx/0x2e3110192ca84dbcafb5d6a0e925dd40cdd5fc5c700d161261afa10979281708",
     "demoVideo": null,
     "deckPdf": null
   },
   "limitations": [
-    "Server AI/tools/evidence slice passed isolated tests and a live Kiln conversation; merchant was a local test fixture.",
-    "UI, production authentication, real merchant and wallet/chain integration remain pending.",
-    "Full product/domain acceptance and final video/deck/chain evidence remain pending; see hub issue #3. Controller review and required CI permit authorized hackathon merges without mandatory teammate approval."
-  ]
+    "Component pins are a source snapshot, not a declaration that their combined hosted release passed human acceptance.",
+    "Pharmacy quotes/fulfillment are simulated; the recorded payment and fulfillment attestation are actual Sepolia transactions.",
+    "Protected Preview access, current product Magic OTP, authenticated Admin audit, and current hosted wallet-to-purchase acceptance must be checked independently.",
+    "Final selected deck, demo video, organizer-defined pre-event disclosure review and final submission remain outstanding."
+  ],
+  "recordedAt": "2026-09-30T09:57:00+09:00",
+  "recordedBackendRun": {
+    "scope": "local backend, scripted owner, actual Kiln, public Sepolia, simulated pharmacy fulfillment",
+    "sourceCommit": "e86e3592eeed512d4f41601a1a46108d45472a39",
+    "publishedEvidenceCommit": "6f1d3029885808bd35d706b47688b24166ed9273",
+    "contractCommit": "d4e6a7d7b7635634b8a59f7c87bba91d3b311f9d",
+    "jarSha256": "cc58571cbe975afb7ad1335909b4a81b925c7d88925aaf4c1482c696cae7d7a2",
+    "report": "https://github.com/web5five/Floww_Server/blob/6f1d3029885808bd35d706b47688b24166ed9273/docs/F031_INDEPENDENT_SEPOLIA.md",
+    "fulfillmentTransaction": "https://sepolia.etherscan.io/tx/0x8b6af8b662b87b86896e7179483da8fe94b11c60d6494fd20c6fc198f669ba60"
+  }
 }

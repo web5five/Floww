@@ -1,6 +1,6 @@
 # Runtime readiness / 실행 환경 준비 현황
 
-Snapshot: 2026-09-29 KST. A component foundation is not an application build. Use the immutable revisions and evidence linked by the release manifest.
+Historical foundation snapshot: 2026-09-29 KST. Current September 30 source/deployment checks are recorded in [hosted readiness evidence](evidence/2026-09-30/preview-readiness.md) and the [release manifest](../release-manifest.json). The foundation-only implementation limits below describe their original date. A component foundation is not an application build. Use the immutable revisions and evidence linked by the release manifest.
 
 ## Verified or prepared / 확인한 기반
 
